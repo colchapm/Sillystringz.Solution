@@ -18,6 +18,6 @@ namespace Factory.Models
 
     public DateTime HireDate { get; set; }
 
-    public virtual ICollection<EngineerMachine> JoinEntities { get; }
+    public virtual ICollection<EngineerMachine> JoinEntities { get; set; }
   }
 }

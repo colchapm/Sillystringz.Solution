@@ -2,7 +2,37 @@
   Layout = "_Layout";
 }
 
-<h1>Dr. Sillystringz's Factory</h1>
+@using Factory.Models
+
+<h1 class="title">Dr. Sillystringz's Factory</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Sillystringz Staff</h3>
+      @if (@ViewBag.EmployeeDirectory.Count == 0)
+      {
+        <h4>we have not hired any staff members yet</h4>
+      }
+      @foreach(Engineer engineer in @ViewBag.EmployeeDirectory)
+      {
+        <li>@engineer.EngineerName</li>
+      }
+    </div>
+    <div class="col-md-6">
+      <h3>Operating Machines at Sillystringz</h3>
+      @if (@ViewBag.MachineInventory.Count == 0)
+      {
+        <h4>we have no functioning machines currently</h4>
+      }
+      @foreach(Machine machine in @ViewBag.MachineInventory)
+      {
+        <li>@machine.MachineName</li>
+      }
+    </div>
+  </div>
+</div>
 
 <ul class="menu-links">
   <li>@Html.ActionLink("see employee directory", "Index", "Engineers")</li>
