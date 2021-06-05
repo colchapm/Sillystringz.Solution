@@ -36,5 +36,15 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Details(int id)
+    {
+      Machine thisMachine = _db.Machines
+        .Include(machine => machine.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
+      
+    }
+
   }
 }
