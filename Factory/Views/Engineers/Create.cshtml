@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h4>add a new engineer</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Name")
+  @Html.TextBoxFor(model => model.EngineerName, new { @class = "form-control", required = "required"})
+
+  @Html.Label("Job Title")
+  @Html.TextBoxFor(model => model.EngineerTitle, new { @class = "form-control", required = "required"})
+
+  @Html.Label("Hire Date")
+  @Html.TextBoxFor(model => model.HireDate, new { @type = "date", @class = "form-control datepicker", required = "required" })
+
+  @Html.Label("Qualified Machines")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Complete" class="btn btn-default" required="true" />
+}
+
+<p>@Html.ActionLink("back to employee directory", "Index")</p>

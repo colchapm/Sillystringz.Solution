@@ -21,5 +21,19 @@ namespace Factory.Controllers
       IEnumerable<Engineer> sortedEngineers = _db.Engineers.OrderBy(engineer => engineer.EngineerName);
       return View(sortedEngineers.ToList());
     }
+
+    public ActionResult Create()
+    {
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
