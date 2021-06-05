@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>edit employee details</h2>
+
+<hr />
+<h4>@Html.DisplayFor(model => model.EngineerName)</h4>
+<br>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+  @Html.Label("Name")
+  @Html.EditorFor(model => model.EngineerName, new { @class = "form-control"})
+
+  <br>
+  <br>
+  @Html.Label("Hire Date")
+  @Html.EditorFor(model => model.HireDate, new { @class = "form-control datepicker "})
+
+  <br>
+  <br>
+
+  @Html.Label("Assigned Machine")
+  @Html.DropDownList("MachineId")
+
+  <br>
+  <br>
+  <input type="submit" value="Save Changes" required="true" />
+}
+
+<ul class="menu-links">
+  <li>@Html.ActionLink("back to employee directory", "Index")</li>
+</ul>
