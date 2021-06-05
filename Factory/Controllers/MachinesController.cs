@@ -78,6 +78,7 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
+        if (_db.EngineerMachine.Any(join => join.EngineerId == EngineerId && join.MachineId == machine.MachineId) == false)
         _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
       }
       _db.SaveChanges();
