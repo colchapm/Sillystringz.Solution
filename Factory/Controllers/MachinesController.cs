@@ -43,7 +43,21 @@ namespace Factory.Controllers
         .ThenInclude(join => join.Machine)
         .FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
-      
+    }
+
+    public ActionResult Edit(int id)
+    {
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
+    }
+
+    [HttpPost]
+    public ActionResult Edit (Machine machine)
+    {
+      _db.Entry(machine).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new {id = machine.MachineId });
     }
 
   }

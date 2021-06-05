@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h2>edit machine details</h2>
+
+<hr />
+<h4>@Html.DisplayFor(model => model.MachineName)</h4>
+<br>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+  @Html.Label("Name")
+  @Html.EditorFor(model => model.MachineName, new { @class = "form-control"})
+
+  <br>
+  <br>
+  @Html.Label("Install Date")
+  @Html.EditorFor(model => model.InstallDate, new { @class = "form-control datepicker "})
+
+  <br>
+  <br>
+
+  @Html.Label("Qualified Engineer")
+  @Html.DropDownList("EngineerId")
+
+  <br>
+  <br>
+  <input type="submit" value="Save Changes" required="true" />
+}
+
+<ul class="menu-links">
+  <li>@Html.ActionLink("back to machine inventory", "Index")</li>
+</ul>
