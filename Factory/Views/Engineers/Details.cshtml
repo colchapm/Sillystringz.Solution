@@ -18,15 +18,15 @@
 }
 else
 {
-  <h4>machines this engineer is qualified to repair</h4>
+  <h4>machines this engineer is qualified to repair:</h4>
   <ul>
     @foreach(var join in Model.JoinEntities)
     {
-      <li>@join.Machine.MachineName</li>
+      <li>@join.Machine.MachineName </li> 
       @using (Html.BeginForm("DeleteMachine", "Engineers"))
       {
         @Html.Hidden("joinId", @join.EngineerMachineId)
-        <input type="submit" value="delete machine" />
+        <input type="submit" value="remove" />
       }
     }
   </ul>
@@ -35,6 +35,6 @@ else
 <ul class="menu-links">
   <li>@Html.ActionLink("edit engineer", "Edit", new { id = Model.EngineerId })</li>
   <li>@Html.ActionLink("delete engineer", "Delete", new { id = Model.EngineerId })</li>
-  <li>@Html.ActionLink("add a machine", "AddMachine", new {id = Model.EngineerId })</li>
+  <li>@Html.ActionLink("assign to a machine", "AddMachine", new {id = Model.EngineerId })</li>
   <li>@Html.ActionLink("back to employee directory", "Index")</li>
 </ul>
