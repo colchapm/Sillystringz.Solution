@@ -18,6 +18,11 @@
 
   <br>
   <br>
+  @Html.Label("Title")
+  @Html.EditorFor(model => model.EngineerTitle, new { @class = "form-control"})
+
+  <br>
+  <br>
   @Html.Label("Hire Date")
   @Html.EditorFor(model => model.HireDate, new { @class = "form-control datepicker "})
 
