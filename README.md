@@ -39,22 +39,11 @@ This is a C# MVC web application built for the famous Dr. Sillystringz to keep t
 * _Still in the terminal, navigate to the desired subdirectory of the repository with the command `$ cd Factory`_
 * _Retrieve and install packages listed in the .csproj files with the command `$ dotnet restore`_
 * _Create internal content for build with the command `$ dotnet build`_
-
-
-**The following instructions are for the application setup and connection to SQL**
-
-* If you do not have MySQL Workbench, it can be downloaded here: https://dev.mysql.com/downloads/file/?id=484391
-* In MySQL Workbench, navigate to the _Administration_ window and click _Data Import/Restore_
-* In the _Data Import_ screen, select _Import from Self-Contained File_, click the 3 dots on the right, and navigate to _Sillystrinz.Solution\collin_chapman.sql_
-* Under _Default Scheme to be Import To_ select the _New_ button
-  * Enter a name for your database (e.g. collin_chapman_test)
-  * Click _Ok_
-* Click _Start Import_
-* In the _Navigator_ > _Schemas_ tab, right click and select _Refresh All_. The new database will appear.
-
-* _In Visual Studio Code, navigate to the `Factory` directory and create an **appsettings.json** file and input the following script (**note the name of the database below needs to match the name of the database you created (e.g. collin_chapman_test)**)_
-
+* _In Visual Studio Code, navigate to the `Factory` directory and create an **appsettings.json** file and input the following script (**note the name of the database can be whatever you would like (e.g. collin_chapman_test)**)_
 ![Image of appsettings.json example](./Factory/wwwroot/img/appsettings.json_test.png)
+* _If you do not have MySQL Workbench, it can be downloaded here: https://dev.mysql.com/downloads/file/?id=484391_
+* _Create Initial SQL migration with the following command `$ dotnet ef migrations add Initial`_
+* _Update the database in MySQL Workbench with the following command `$ dotnet ef database update` (**note this will title the database whatever you listed in your appsettings.json file (e.g. collin_chapman_test)**) _
 * _Back in the terminal, navigate to `$ cd Factory` and run the application with the command `$ dotnet run`
 
 
