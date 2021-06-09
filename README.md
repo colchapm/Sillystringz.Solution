@@ -65,7 +65,7 @@ This is a C# MVC web application built for the famous Dr. Sillystringz to keep t
 
 ## Known Bugs
 
-Currently engineers can have the same machine assinged to them more than once
+No known bugs at this time
 
 ## Link
 
